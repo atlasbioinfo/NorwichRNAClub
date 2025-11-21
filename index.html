@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Norwich RNA Club - RNA Enthusiasts and Researchers</title>
+  <meta name="description" content="Welcome to Norwich RNA Club, a community for RNA enthusiasts and researchers. Join us to explore the latest in RNA research and connect with the global community.">
+  <meta property="og:title" content="Norwich RNA Club">
+  <meta property="og:description" content="A community for RNA enthusiasts and researchers at Norwich Research Park">
+  <meta property="og:image" content="images/backgrounds/og-home.jpg">
+  <link rel="icon" href="images/logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="Norwich RNA Club">
+      </a>
+      <button class="mobile-menu-btn" onclick="toggleMenu()">&#9776;</button>
+      <nav class="nav" id="nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="events.html">Events</a>
+        <a href="join.html">Join</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero hero-bg" style="background-image: url('images/backgrounds/hero-bg.jpg');">
+    <div class="container">
+      <h1>Norwich RNA Club</h1>
+      <p>A community for RNA enthusiasts and researchers at Norwich Research Park. Connecting scientists through seminars, discussions, and collaborative research.</p>
+      <a href="events.html" class="btn btn-primary">View Events</a>
+      <a href="join.html" class="btn btn-outline">Join Us</a>
+    </div>
+  </section>
+
+  <!-- Featured Event -->
+  <section class="section">
+    <div class="container">
+      <div class="featured-event" id="featured-event">
+        <div class="loading">Loading featured event...</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" style="background: var(--bg-light);">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text">
+          <h2>About Norwich RNA Club</h2>
+          <p>The Norwich RNA Club brings together researchers from across Norwich Research Park who share a passion for RNA biology. Our community includes scientists from the John Innes Centre, Earlham Institute, Quadram Institute, and University of East Anglia.</p>
+          <p>We organize regular seminars featuring leading RNA researchers from around the world, providing opportunities to learn about cutting-edge research and foster collaborations.</p>
+          <a href="join.html" class="btn btn-primary">Learn More</a>
+        </div>
+        <div class="about-image">
+          <img src="images/backgrounds/og-home.jpg" alt="RNA Research">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Our Team</h2>
+      <div class="team-grid" id="team-grid">
+        <div class="loading">Loading team...</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming Events Preview -->
+  <section class="section" style="background: var(--bg-light);">
+    <div class="container">
+      <h2 class="section-title">Recent Events</h2>
+      <div class="events-grid" id="events-preview">
+        <div class="loading">Loading events...</div>
+      </div>
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="events.html" class="btn btn-primary">View All Events</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Norwich RNA Club. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="events.html">Events</a>
+        <a href="join.html">Join</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  <script>
+    // Mobile menu toggle
+    function toggleMenu() {
+      document.getElementById('nav').classList.toggle('active');
+    }
+
+    // Load YAML data
+    async function loadYAML(file) {
+      try {
+        const response = await fetch(file);
+        const text = await response.text();
+        return jsyaml.load(text);
+      } catch (error) {
+        console.error('Error loading YAML:', error);
+        return null;
+      }
+    }
+
+    // Format date
+    function formatDate(dateStr) {
+      const date = new Date(dateStr);
+      return date.toLocaleDateString('en-GB', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      });
+    }
+
+    // Check if date is in the past
+    function isPast(dateStr) {
+      return new Date(dateStr) < new Date();
+    }
+
+    // Render featured event (always use the latest/first event)
+    function renderFeaturedEvent(conferences) {
+      const container = document.getElementById('featured-event');
+      const featured = conferences[0];
+
+      if (!featured) {
+        container.innerHTML = '<p>No events scheduled</p>';
+        return;
+      }
+
+      const past = isPast(featured.date);
+      container.innerHTML = `
+        <h2>${past ? 'Latest Event' : 'Upcoming Event'}</h2>
+        <h3>${featured.title}</h3>
+        <p class="speaker">${featured.speaker}</p>
+        <p class="meta">${formatDate(featured.date)} | ${featured.time} | ${featured.location}</p>
+        <a href="event.html?date=${featured.date}" class="btn btn-outline">View Details</a>
+      `;
+    }
+
+    // Render events preview
+    function renderEventsPreview(conferences) {
+      const container = document.getElementById('events-preview');
+      const events = conferences.slice(0, 3);
+
+      if (events.length === 0) {
+        container.innerHTML = '<p>No events found</p>';
+        return;
+      }
+
+      container.innerHTML = events.map(event => {
+        const past = isPast(event.date);
+        return `
+          <a href="event.html?date=${event.date}" class="event-card-link">
+            <div class="event-card ${past ? 'past' : ''}">
+              <img src="${event.image}" alt="${event.speaker}" class="event-image" onerror="this.src='images/backgrounds/og-events.jpg'">
+              <div class="event-content">
+                <span class="event-date">${formatDate(event.date)}</span>
+                <h3 class="event-title">${event.title}</h3>
+                <p class="event-speaker">${event.speaker}</p>
+                <p class="event-affiliation">${event.affiliation}</p>
+              </div>
+            </div>
+          </a>
+        `;
+      }).join('');
+    }
+
+    // Render team
+    function renderTeam(team) {
+      const container = document.getElementById('team-grid');
+
+      if (!team || team.length === 0) {
+        container.innerHTML = '<p>No team members found</p>';
+        return;
+      }
+
+      container.innerHTML = team.map(member => `
+        <div class="team-card">
+          <img src="${member.image}" alt="${member.name}" onerror="this.src='images/backgrounds/og-home.jpg'">
+          <h3>${member.name}</h3>
+          <p class="title">${member.title}</p>
+          <p class="affiliation">${member.affiliation}</p>
+        </div>
+      `).join('');
+    }
+
+    // Initialize
+    async function init() {
+      const [confData, teamData] = await Promise.all([
+        loadYAML('data/conferences.yml'),
+        loadYAML('data/team.yml')
+      ]);
+
+      if (confData && confData.conferences) {
+        renderFeaturedEvent(confData.conferences);
+        renderEventsPreview(confData.conferences);
+      }
+
+      if (teamData && teamData.team) {
+        renderTeam(teamData.team);
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>

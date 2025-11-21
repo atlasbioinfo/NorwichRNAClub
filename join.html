@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join Us - Norwich RNA Club</title>
+  <meta name="description" content="Join the Norwich RNA Club community. Connect with RNA enthusiasts and researchers at Norwich Research Park.">
+  <meta property="og:title" content="Join Norwich RNA Club">
+  <meta property="og:description" content="Connect with RNA enthusiasts and researchers at Norwich Research Park">
+  <meta property="og:image" content="images/backgrounds/og-join.jpg">
+  <link rel="icon" href="images/logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="Norwich RNA Club">
+      </a>
+      <button class="mobile-menu-btn" onclick="toggleMenu()">&#9776;</button>
+      <nav class="nav" id="nav">
+        <a href="index.html">Home</a>
+        <a href="events.html">Events</a>
+        <a href="join.html" class="active">Join</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero hero-bg" style="background-image: url('images/backgrounds/join-bg.jpg'); padding: 80px 0;">
+    <div class="container">
+      <h1>Join Norwich RNA Club</h1>
+      <p>Become part of our growing community of RNA researchers and enthusiasts</p>
+    </div>
+  </section>
+
+  <!-- Join Section -->
+  <section class="section">
+    <div class="container">
+      <div class="join-content">
+        <h2 class="section-title">Why Join Us?</h2>
+
+        <div style="text-align: left; max-width: 600px; margin: 0 auto 40px;">
+          <div style="margin-bottom: 30px;">
+            <h3 style="color: var(--secondary-color); margin-bottom: 10px;">&#127891; Learn from Experts</h3>
+            <p style="color: var(--text-light);">Attend seminars from leading RNA researchers from around the world. Stay updated with the latest discoveries and techniques in RNA biology.</p>
+          </div>
+
+          <div style="margin-bottom: 30px;">
+            <h3 style="color: var(--secondary-color); margin-bottom: 10px;">&#129309; Network & Collaborate</h3>
+            <p style="color: var(--text-light);">Connect with researchers from John Innes Centre, Earlham Institute, Quadram Institute, and UEA. Find potential collaborators and share ideas.</p>
+          </div>
+
+          <div style="margin-bottom: 30px;">
+            <h3 style="color: var(--secondary-color); margin-bottom: 10px;">&#128172; Join the Discussion</h3>
+            <p style="color: var(--text-light);">Participate in discussions, ask questions, and engage with speakers during our seminar sessions.</p>
+          </div>
+        </div>
+
+        <h2 class="section-title">Get In Touch</h2>
+        <p>Interested in joining our mailing list or have questions? Contact us!</p>
+
+        <div style="background: var(--bg-light); padding: 40px; border-radius: 10px; margin-top: 30px;">
+          <p style="margin-bottom: 20px;"><strong>Email:</strong> <a href="mailto:rnaclub@nbi.ac.uk">rnaclub@nbi.ac.uk</a></p>
+          <p style="margin-bottom: 20px;"><strong>Location:</strong> Norwich Research Park, Norwich, UK</p>
+          <p><strong>Follow our events:</strong> Check our <a href="events.html">Events page</a> for upcoming seminars</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="section" style="background: var(--bg-light);">
+    <div class="container">
+      <h2 class="section-title">Meet Our Organizers</h2>
+      <div class="team-grid" id="team-grid">
+        <div class="loading">Loading team...</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Norwich RNA Club. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="events.html">Events</a>
+        <a href="join.html">Join</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  <script>
+    // Mobile menu toggle
+    function toggleMenu() {
+      document.getElementById('nav').classList.toggle('active');
+    }
+
+    // Load YAML data
+    async function loadYAML(file) {
+      try {
+        const response = await fetch(file);
+        const text = await response.text();
+        return jsyaml.load(text);
+      } catch (error) {
+        console.error('Error loading YAML:', error);
+        return null;
+      }
+    }
+
+    // Render team
+    function renderTeam(team) {
+      const container = document.getElementById('team-grid');
+
+      if (!team || team.length === 0) {
+        container.innerHTML = '<p>No team members found</p>';
+        return;
+      }
+
+      container.innerHTML = team.map(member => `
+        <div class="team-card">
+          <img src="${member.image}" alt="${member.name}" onerror="this.src='images/backgrounds/og-home.jpg'">
+          <h3>${member.name}</h3>
+          <p class="title">${member.title}</p>
+          <p class="affiliation">${member.affiliation}</p>
+        </div>
+      `).join('');
+    }
+
+    // Initialize
+    async function init() {
+      const teamData = await loadYAML('data/team.yml');
+
+      if (teamData && teamData.team) {
+        renderTeam(teamData.team);
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>

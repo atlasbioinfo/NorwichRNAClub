@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events - Norwich RNA Club</title>
+  <meta name="description" content="Discover RNA seminars and symposiums at Norwich RNA Club. Stay updated with the latest in RNA research through engaging events and discussions.">
+  <meta property="og:title" content="Events - Norwich RNA Club">
+  <meta property="og:description" content="RNA seminars and symposiums at Norwich Research Park">
+  <meta property="og:image" content="images/backgrounds/og-events.jpg">
+  <link rel="icon" href="images/logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="Norwich RNA Club">
+      </a>
+      <button class="mobile-menu-btn" onclick="toggleMenu()">&#9776;</button>
+      <nav class="nav" id="nav">
+        <a href="index.html">Home</a>
+        <a href="events.html" class="active">Events</a>
+        <a href="join.html">Join</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" style="padding: 60px 0;">
+    <div class="container">
+      <h1>Events & Seminars</h1>
+      <p>Discover RNA seminars and symposiums connecting you with the global RNA community</p>
+    </div>
+  </section>
+
+  <!-- Events List -->
+  <section class="section">
+    <div class="container">
+      <!-- Filter Tabs -->
+      <div style="text-align: center; margin-bottom: 40px;">
+        <button class="btn btn-primary" onclick="filterEvents('all')" id="btn-all">All Events</button>
+        <button class="btn" style="background: var(--bg-light); color: var(--text-color);" onclick="filterEvents('upcoming')" id="btn-upcoming">Upcoming</button>
+        <button class="btn" style="background: var(--bg-light); color: var(--text-color);" onclick="filterEvents('past')" id="btn-past">Past</button>
+      </div>
+
+      <div class="events-grid" id="events-list">
+        <div class="loading">Loading events...</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Norwich RNA Club. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="events.html">Events</a>
+        <a href="join.html">Join</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  <script>
+    let allConferences = [];
+    let currentFilter = 'all';
+
+    // Mobile menu toggle
+    function toggleMenu() {
+      document.getElementById('nav').classList.toggle('active');
+    }
+
+    // Load YAML data
+    async function loadYAML(file) {
+      try {
+        const response = await fetch(file);
+        const text = await response.text();
+        return jsyaml.load(text);
+      } catch (error) {
+        console.error('Error loading YAML:', error);
+        return null;
+      }
+    }
+
+    // Format date
+    function formatDate(dateStr) {
+      const date = new Date(dateStr);
+      return date.toLocaleDateString('en-GB', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      });
+    }
+
+    // Check if date is in the past
+    function isPast(dateStr) {
+      return new Date(dateStr) < new Date();
+    }
+
+    // Filter events
+    function filterEvents(filter) {
+      currentFilter = filter;
+
+      // Update button styles
+      document.getElementById('btn-all').className = filter === 'all' ? 'btn btn-primary' : 'btn';
+      document.getElementById('btn-all').style.background = filter === 'all' ? '' : 'var(--bg-light)';
+      document.getElementById('btn-all').style.color = filter === 'all' ? '' : 'var(--text-color)';
+
+      document.getElementById('btn-upcoming').className = filter === 'upcoming' ? 'btn btn-primary' : 'btn';
+      document.getElementById('btn-upcoming').style.background = filter === 'upcoming' ? '' : 'var(--bg-light)';
+      document.getElementById('btn-upcoming').style.color = filter === 'upcoming' ? '' : 'var(--text-color)';
+
+      document.getElementById('btn-past').className = filter === 'past' ? 'btn btn-primary' : 'btn';
+      document.getElementById('btn-past').style.background = filter === 'past' ? '' : 'var(--bg-light)';
+      document.getElementById('btn-past').style.color = filter === 'past' ? '' : 'var(--text-color)';
+
+      renderEvents();
+    }
+
+    // Render events
+    function renderEvents() {
+      const container = document.getElementById('events-list');
+
+      let events = allConferences;
+
+      if (currentFilter === 'upcoming') {
+        events = allConferences.filter(e => !isPast(e.date));
+      } else if (currentFilter === 'past') {
+        events = allConferences.filter(e => isPast(e.date));
+      }
+
+      if (events.length === 0) {
+        container.innerHTML = '<p style="text-align: center; color: var(--text-light);">No events found</p>';
+        return;
+      }
+
+      container.innerHTML = events.map(event => {
+        const past = isPast(event.date);
+        return `
+          <a href="event.html?date=${event.date}" class="event-card-link">
+            <div class="event-card ${past ? 'past' : ''}">
+              <img src="${event.image}" alt="${event.speaker}" class="event-image" onerror="this.src='images/backgrounds/og-events.jpg'">
+              <div class="event-content">
+                <span class="event-date">${formatDate(event.date)}</span>
+                <h3 class="event-title">${event.title}</h3>
+                <p class="event-speaker">${event.speaker}</p>
+                <p class="event-affiliation">${event.affiliation}</p>
+                <div class="event-meta">
+                  <span>&#128337; ${event.time}</span>
+                  <span>&#128205; ${event.location}</span>
+                </div>
+                <p class="event-description">${event.description}</p>
+              </div>
+            </div>
+          </a>
+        `;
+      }).join('');
+    }
+
+    // Initialize
+    async function init() {
+      const data = await loadYAML('data/conferences.yml');
+
+      if (data && data.conferences) {
+        allConferences = data.conferences;
+        renderEvents();
+      } else {
+        document.getElementById('events-list').innerHTML = '<p>Failed to load events</p>';
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>
