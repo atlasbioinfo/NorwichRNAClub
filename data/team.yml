@@ -1,0 +1,40 @@
+# ===========================================
+# Norwich RNA Club - Team Members
+# ===========================================
+#
+# HOW TO ADD A NEW MEMBER:
+# 1. Add a new entry following the format below
+# 2. Save and commit
+#
+# ===========================================
+
+team:
+  - name: "Yiliang Ding"
+    title: "Group Leader"
+    affiliation: "John Innes Centre"
+    image: "images/team/yiliang-ding.jpg"
+
+  - name: "Haopeng Yu"
+    title: "Postdoctoral Researcher"
+    affiliation: "John Innes Centre"
+    image: "images/team/haopeng-yu.jpeg"
+
+  - name: "Dr. Alper Akay"
+    title: "Group Leader"
+    affiliation: "Earlham Institute"
+    image: "images/team/dr-alper-akay.webp"
+
+  - name: "Dr. Wilfried Haerty"
+    title: "Group Leader"
+    affiliation: "Earlham Institute"
+    image: "images/team/dr-wilfried-haerty.jpeg"
+
+  - name: "Maria"
+    title: "Researcher"
+    affiliation: "Norwich Research Park"
+    image: "images/team/maria.jpeg"
+
+  - name: "Susan Duncan"
+    title: "Researcher"
+    affiliation: "John Innes Centre"
+    image: "images/team/susan-duncan.jpeg"
