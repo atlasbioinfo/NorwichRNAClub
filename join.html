@@ -62,12 +62,21 @@
         </div>
 
         <h2 class="section-title">Get In Touch</h2>
-        <p>Interested in joining our mailing list or have questions? Contact us!</p>
+        <p>Interested in joining our mailing list or have questions? We'd love to hear from you!</p>
 
-        <div style="background: var(--bg-light); padding: 40px; border-radius: 10px; margin-top: 30px;">
-          <p style="margin-bottom: 20px;"><strong>Email:</strong> <a href="mailto:rnaclub@nbi.ac.uk">rnaclub@nbi.ac.uk</a></p>
-          <p style="margin-bottom: 20px;"><strong>Location:</strong> Norwich Research Park, Norwich, UK</p>
-          <p><strong>Follow our events:</strong> Check our <a href="events.html">Events page</a> for upcoming seminars</p>
+        <div class="contact-card" id="contact-info">
+          <div class="contact-logo">
+            <img src="images/logo.png" alt="Norwich RNA Club">
+          </div>
+          <div class="contact-details">
+            <p class="contact-message">Join our community of RNA researchers! Drop us an email to get on our mailing list and stay updated with upcoming seminars and events.</p>
+            <a href="mailto:haopeng.yu@jic.ac.uk" class="email-btn" id="contact-email">
+              <span class="email-icon">&#9993;</span>
+              <span class="email-text">haopeng.yu@jic.ac.uk</span>
+            </a>
+            <p class="contact-location" id="contact-location"><strong>Location:</strong> Norwich Research Park, Norwich, UK</p>
+            <p class="contact-events"><strong>Stay updated:</strong> Check our <a href="events.html">Events page</a> for upcoming seminars</p>
+          </div>
         </div>
       </div>
     </div>
@@ -115,31 +124,73 @@
       }
     }
 
-    // Render team
-    function renderTeam(team) {
+    // Render team with two rows (Group Leaders first, then team members)
+    function renderTeam(groupLeaders, team) {
       const container = document.getElementById('team-grid');
 
-      if (!team || team.length === 0) {
-        container.innerHTML = '<p>No team members found</p>';
-        return;
-      }
-
-      container.innerHTML = team.map(member => `
+      const renderMemberCard = (member) => `
         <div class="team-card">
           <img src="${member.image}" alt="${member.name}" onerror="this.src='images/backgrounds/og-home.jpg'">
           <h3>${member.name}</h3>
           <p class="title">${member.title}</p>
           <p class="affiliation">${member.affiliation}</p>
         </div>
-      `).join('');
+      `;
+
+      let html = '';
+
+      // First row: Group Leaders
+      if (groupLeaders && groupLeaders.length > 0) {
+        html += '<div class="team-row team-row-leaders">';
+        html += groupLeaders.map(renderMemberCard).join('');
+        html += '</div>';
+      }
+
+      // Second row: Team Members
+      if (team && team.length > 0) {
+        html += '<div class="team-row team-row-members">';
+        html += team.map(renderMemberCard).join('');
+        html += '</div>';
+      }
+
+      if (!html) {
+        container.innerHTML = '<p>No team members found</p>';
+        return;
+      }
+
+      container.innerHTML = html;
+    }
+
+    // Update contact info from site config
+    function updateContactInfo(siteConfig) {
+      if (!siteConfig || !siteConfig.contact) return;
+
+      const emailBtn = document.getElementById('contact-email');
+      const locationEl = document.getElementById('contact-location');
+
+      if (emailBtn && siteConfig.contact.email) {
+        emailBtn.href = 'mailto:' + siteConfig.contact.email;
+        emailBtn.querySelector('.email-text').textContent = siteConfig.contact.email;
+      }
+
+      if (locationEl && siteConfig.contact.location) {
+        locationEl.innerHTML = '<strong>Location:</strong> ' + siteConfig.contact.location;
+      }
     }
 
     // Initialize
     async function init() {
-      const teamData = await loadYAML('data/team.yml');
+      const [teamData, siteData] = await Promise.all([
+        loadYAML('data/team.yml'),
+        loadYAML('data/site.yml')
+      ]);
 
-      if (teamData && teamData.team) {
-        renderTeam(teamData.team);
+      if (teamData) {
+        renderTeam(teamData.group_leaders, teamData.team);
+      }
+
+      if (siteData) {
+        updateContactInfo(siteData);
       }
     }
 

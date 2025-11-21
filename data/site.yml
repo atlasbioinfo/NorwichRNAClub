@@ -1,0 +1,21 @@
+# ===========================================
+# Norwich RNA Club - Site Configuration
+# ===========================================
+#
+# General site settings and contact information
+#
+# ===========================================
+
+site:
+  name: "Norwich RNA Club"
+  description: "A community for RNA enthusiasts and researchers at Norwich Research Park"
+  logo: "images/logo.png"
+
+contact:
+  email: "haopeng.yu@jic.ac.uk"
+  location: "Norwich Research Park, Norwich, UK"
+
+social:
+  # Add social media links here if needed
+  # twitter: ""
+  # linkedin: ""
