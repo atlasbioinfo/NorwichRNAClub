@@ -41,7 +41,7 @@ conferences:
     description: "Dr Junjie Guo from the Department of Neuroscience at Yale School of Medicine will present on RNA plasticity in neuronal health and disease."
     image: "images/speakers/junjie-guo.jpeg"
     poster: "images/posters/2024-08-12.png"
-    abstract: ""
+    abstract: "RNAs are emerging as a powerful substrate for engineering cellular behavior. As with all biomolecules, RNA function is intimately related to its structure, and many natural RNAs adopt structures that selectively modulate gene expression. Central questions in biology and bioengineering then are: How do RNAs fold inside cells?; and How can we engineer these folds to control gene expression? In this talk, I will present our work at the interface of these two questions and share results that are beginning to uncover new understanding of natural RNAs, and design principles for engineering RNAs for an array of applications, most notably in global health. I will focus on our recent discoveries in understanding how cellular RNAs fold dynamically during transcription, how riboswitch RNAs exploit this phenomenon to make regulatory decisions ‘on the fly’ during their synthesis, and how we can use riboswitches as biosensors. I will then present how these discoveries led to our development of a new cell-free synthetic biology/DNA nanotechnology biosensing platform that allows rapid, field-deployable diagnostics for a range of compounds important to our health and the environment. Overall this work points to the importance of RNA for understanding natural biology and for engineering biotechnologies to tackle global challenges."
     featured: true
 
   - title: "Towards an era of RNA design for biology and global health"
