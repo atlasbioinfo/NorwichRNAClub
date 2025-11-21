@@ -144,20 +144,22 @@
       container.innerHTML = events.map(event => {
         const past = isPast(event.date);
         return `
-          <div class="event-card ${past ? 'past' : ''} ${event.featured ? 'featured' : ''}">
-            <img src="${event.image}" alt="${event.speaker}" class="event-image" onerror="this.src='images/backgrounds/og-events.jpg'">
-            <div class="event-content">
-              <span class="event-date">${formatDate(event.date)}</span>
-              <h3 class="event-title">${event.title}</h3>
-              <p class="event-speaker">${event.speaker}</p>
-              <p class="event-affiliation">${event.affiliation}</p>
-              <div class="event-meta">
-                <span>&#128337; ${event.time}</span>
-                <span>&#128205; ${event.location}</span>
+          <a href="event.html?date=${event.date}" class="event-card-link">
+            <div class="event-card ${past ? 'past' : ''} ${event.featured ? 'featured' : ''}">
+              <img src="${event.image}" alt="${event.speaker}" class="event-image" onerror="this.src='images/backgrounds/og-events.jpg'">
+              <div class="event-content">
+                <span class="event-date">${formatDate(event.date)}</span>
+                <h3 class="event-title">${event.title}</h3>
+                <p class="event-speaker">${event.speaker}</p>
+                <p class="event-affiliation">${event.affiliation}</p>
+                <div class="event-meta">
+                  <span>&#128337; ${event.time}</span>
+                  <span>&#128205; ${event.location}</span>
+                </div>
+                <p class="event-description">${event.description}</p>
               </div>
-              <p class="event-description">${event.description}</p>
             </div>
-          </div>
+          </a>
         `;
       }).join('');
     }

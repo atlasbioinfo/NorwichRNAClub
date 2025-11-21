@@ -5,7 +5,9 @@
 # HOW TO ADD A NEW EVENT:
 # 1. Copy the template below and paste it at the TOP of the list
 # 2. Fill in the details
-# 3. Save and commit - GitHub Actions will auto-deploy
+# 3. Upload speaker photo to images/speakers/ (named as firstname-lastname.jpg)
+# 4. Upload poster to images/posters/ (named as YYYY-MM-DD.png, e.g., 2025-01-15.png)
+# 5. Save and commit - GitHub Actions will auto-deploy
 #
 # TEMPLATE:
 # - title: "Your Event Title"
@@ -15,8 +17,16 @@
 #   time: "13:00 - 14:00"
 #   location: "Conference Centre, John Innes Centre"
 #   description: "Brief description of the talk..."
-#   image: "images/speakers/speaker-name.jpg"
+#   image: "images/speakers/firstname-lastname.jpg"
+#   poster: "images/posters/2025-01-15.png"
+#   abstract: "Full abstract text here (optional)..."
 #   featured: false
+#
+# NOTES:
+# - image: Speaker headshot (in images/speakers/)
+# - poster: Event poster (in images/posters/, named by date)
+# - abstract: Optional, shows on event detail page
+# - featured: Set to true for the main highlighted event
 #
 # ===========================================
 
@@ -30,6 +40,8 @@ conferences:
     location: "Conference Centre McClintock G34/G35, John Innes Centre"
     description: "Dr Junjie Guo from the Department of Neuroscience at Yale School of Medicine will present on RNA plasticity in neuronal health and disease."
     image: "images/speakers/junjie-guo.jpeg"
+    poster: "images/posters/2024-08-12.png"
+    abstract: ""
     featured: true
 
   - title: "Towards an era of RNA design for biology and global health"
@@ -40,7 +52,9 @@ conferences:
     location: "JIC Lecture Theatre, John Innes Centre"
     description: "Prof. Julius B. Lucks from Northwestern University will present on RNA design for biology and global health."
     image: "images/speakers/julius-lucks.jpg"
-    featured: true
+    poster: ""
+    abstract: "RNAs are emerging as a powerful substrate for engineering cellular behavior. As with all biomolecules, RNA function is intimately related to its structure, and many natural RNAs adopt structures that selectively modulate gene expression. Central questions in biology and bioengineering then are: How do RNAs fold inside cells?; and How can we engineer these folds to control gene expression? In this talk, I will present our work at the interface of these two questions and share results that are beginning to uncover new understanding of natural RNAs, and design principles for engineering RNAs for an array of applications, most notably in global health."
+    featured: false
 
   - title: "Exploring the Co-evolution of Transposable Elements and the Plant Biological Role of RNA Structure"
     speaker: "Dr. Miguel V. Almeida & Dr. Haopeng Yu"
@@ -50,6 +64,8 @@ conferences:
     location: "Conference Centre, John Innes Centre"
     description: "Dr. Miguel V. Almeida will discuss the dynamic co-evolution of transposable elements and the piRNA pathway in African cichlid fishes. Dr. Haopeng Yu will present on unveiling the plant biological role of RNA structure through sequencing and AI techniques."
     image: "images/speakers/event-logo-2024.png"
+    poster: ""
+    abstract: ""
     featured: false
 
   - title: "Transcriptome-scale mapping of 'static' and dynamic RNA structure elements"
@@ -60,6 +76,8 @@ conferences:
     location: "Conference Centre, John Innes Centre"
     description: "Dr Danny Incarnato will present on transcriptome-scale mapping of static and dynamic RNA structure elements."
     image: "images/speakers/danny-incarnato.jpg"
+    poster: ""
+    abstract: ""
     featured: false
 
   - title: "RNA structure mapping in single cells"
@@ -70,6 +88,8 @@ conferences:
     location: "Conference Centre, John Innes Centre"
     description: "Dr Yue Wan from the Genome Institute of Singapore will present on RNA structure mapping in single cells."
     image: "images/speakers/yue-wan.jpg"
+    poster: ""
+    abstract: ""
     featured: false
 
   - title: "Keeping RNA regulation in shape for health"
@@ -80,4 +100,6 @@ conferences:
     location: "Conference Centre, John Innes Centre"
     description: "Dr Matthias Soller from the University of Birmingham will present on keeping RNA regulation in shape for health."
     image: "images/speakers/matthias-soller.jpg"
+    poster: ""
+    abstract: ""
     featured: false

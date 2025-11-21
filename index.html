@@ -152,7 +152,7 @@
         <h3>${featured.title}</h3>
         <p class="speaker">${featured.speaker}</p>
         <p class="meta">${formatDate(featured.date)} | ${featured.time} | ${featured.location}</p>
-        <a href="events.html" class="btn btn-outline">View Details</a>
+        <a href="event.html?date=${featured.date}" class="btn btn-outline">View Details</a>
       `;
     }
 
@@ -169,15 +169,17 @@
       container.innerHTML = events.map(event => {
         const past = isPast(event.date);
         return `
-          <div class="event-card ${past ? 'past' : ''} ${event.featured ? 'featured' : ''}">
-            <img src="${event.image}" alt="${event.speaker}" class="event-image" onerror="this.src='images/backgrounds/og-events.jpg'">
-            <div class="event-content">
-              <span class="event-date">${formatDate(event.date)}</span>
-              <h3 class="event-title">${event.title}</h3>
-              <p class="event-speaker">${event.speaker}</p>
-              <p class="event-affiliation">${event.affiliation}</p>
+          <a href="event.html?date=${event.date}" class="event-card-link">
+            <div class="event-card ${past ? 'past' : ''} ${event.featured ? 'featured' : ''}">
+              <img src="${event.image}" alt="${event.speaker}" class="event-image" onerror="this.src='images/backgrounds/og-events.jpg'">
+              <div class="event-content">
+                <span class="event-date">${formatDate(event.date)}</span>
+                <h3 class="event-title">${event.title}</h3>
+                <p class="event-speaker">${event.speaker}</p>
+                <p class="event-affiliation">${event.affiliation}</p>
+              </div>
             </div>
-          </div>
+          </a>
         `;
       }).join('');
     }

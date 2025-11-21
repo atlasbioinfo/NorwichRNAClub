@@ -527,3 +527,27 @@ img {
     gap: 5px;
   }
 }
+
+/* Event Card Links */
+.event-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.event-card-link:hover {
+  color: inherit;
+}
+
+.event-card-link:hover .event-card {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.event-card-link .event-title {
+  transition: color 0.3s;
+}
+
+.event-card-link:hover .event-title {
+  color: var(--secondary-color);
+}
