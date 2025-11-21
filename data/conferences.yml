@@ -16,17 +16,16 @@
 #   date: "2025-01-15"
 #   time: "13:00 - 14:00"
 #   location: "Conference Centre, John Innes Centre"
-#   description: "Brief description of the talk..."
+#   description: "Brief description (shown in event cards)"
 #   image: "images/speakers/firstname-lastname.jpg"
 #   poster: "images/posters/2025-01-15.png"
-#   abstract: "Full abstract text here (optional)..."
-#   featured: false
+#   abstract: "Full abstract text (shown on detail page)"
 #
 # NOTES:
+# - The FIRST event in the list is featured on homepage
 # - image: Speaker headshot (in images/speakers/)
 # - poster: Event poster (in images/posters/, named by date)
-# - abstract: Optional, shows on event detail page
-# - featured: Set to true for the main highlighted event
+# - abstract: Shows on event detail page
 #
 # ===========================================
 
@@ -41,8 +40,7 @@ conferences:
     description: "Dr Junjie Guo from the Department of Neuroscience at Yale School of Medicine will present on RNA plasticity in neuronal health and disease."
     image: "images/speakers/junjie-guo.jpeg"
     poster: "images/posters/2024-08-12.png"
-    abstract: "RNAs are emerging as a powerful substrate for engineering cellular behavior. As with all biomolecules, RNA function is intimately related to its structure, and many natural RNAs adopt structures that selectively modulate gene expression. Central questions in biology and bioengineering then are: How do RNAs fold inside cells?; and How can we engineer these folds to control gene expression? In this talk, I will present our work at the interface of these two questions and share results that are beginning to uncover new understanding of natural RNAs, and design principles for engineering RNAs for an array of applications, most notably in global health. I will focus on our recent discoveries in understanding how cellular RNAs fold dynamically during transcription, how riboswitch RNAs exploit this phenomenon to make regulatory decisions ‘on the fly’ during their synthesis, and how we can use riboswitches as biosensors. I will then present how these discoveries led to our development of a new cell-free synthetic biology/DNA nanotechnology biosensing platform that allows rapid, field-deployable diagnostics for a range of compounds important to our health and the environment. Overall this work points to the importance of RNA for understanding natural biology and for engineering biotechnologies to tackle global challenges."
-    featured: true
+    abstract: "RNAs are emerging as a powerful substrate for engineering cellular behavior. As with all biomolecules, RNA function is intimately related to its structure, and many natural RNAs adopt structures that selectively modulate gene expression. Central questions in biology and bioengineering then are: How do RNAs fold inside cells?; and How can we engineer these folds to control gene expression? In this talk, I will present our work at the interface of these two questions and share results that are beginning to uncover new understanding of natural RNAs, and design principles for engineering RNAs for an array of applications, most notably in global health. I will focus on our recent discoveries in understanding how cellular RNAs fold dynamically during transcription, how riboswitch RNAs exploit this phenomenon to make regulatory decisions 'on the fly' during their synthesis, and how we can use riboswitches as biosensors. I will then present how these discoveries led to our development of a new cell-free synthetic biology/DNA nanotechnology biosensing platform that allows rapid, field-deployable diagnostics for a range of compounds important to our health and the environment. Overall this work points to the importance of RNA for understanding natural biology and for engineering biotechnologies to tackle global challenges."
 
   - title: "Towards an era of RNA design for biology and global health"
     speaker: "Prof. Julius B. Lucks"
@@ -54,7 +52,6 @@ conferences:
     image: "images/speakers/julius-lucks.jpg"
     poster: ""
     abstract: "RNAs are emerging as a powerful substrate for engineering cellular behavior. As with all biomolecules, RNA function is intimately related to its structure, and many natural RNAs adopt structures that selectively modulate gene expression. Central questions in biology and bioengineering then are: How do RNAs fold inside cells?; and How can we engineer these folds to control gene expression? In this talk, I will present our work at the interface of these two questions and share results that are beginning to uncover new understanding of natural RNAs, and design principles for engineering RNAs for an array of applications, most notably in global health."
-    featured: false
 
   - title: "Exploring the Co-evolution of Transposable Elements and the Plant Biological Role of RNA Structure"
     speaker: "Dr. Miguel V. Almeida & Dr. Haopeng Yu"
@@ -66,7 +63,6 @@ conferences:
     image: "images/speakers/event-logo-2024.png"
     poster: ""
     abstract: ""
-    featured: false
 
   - title: "Transcriptome-scale mapping of 'static' and dynamic RNA structure elements"
     speaker: "Dr. Danny Incarnato"
@@ -78,7 +74,6 @@ conferences:
     image: "images/speakers/danny-incarnato.jpg"
     poster: ""
     abstract: ""
-    featured: false
 
   - title: "RNA structure mapping in single cells"
     speaker: "Dr. Yue Wan"
@@ -90,7 +85,6 @@ conferences:
     image: "images/speakers/yue-wan.jpg"
     poster: ""
     abstract: ""
-    featured: false
 
   - title: "Keeping RNA regulation in shape for health"
     speaker: "Dr. Matthias Soller"
@@ -102,4 +96,3 @@ conferences:
     image: "images/speakers/matthias-soller.jpg"
     poster: ""
     abstract: ""
-    featured: false

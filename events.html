@@ -145,7 +145,7 @@
         const past = isPast(event.date);
         return `
           <a href="event.html?date=${event.date}" class="event-card-link">
-            <div class="event-card ${past ? 'past' : ''} ${event.featured ? 'featured' : ''}">
+            <div class="event-card ${past ? 'past' : ''}">
               <img src="${event.image}" alt="${event.speaker}" class="event-image" onerror="this.src='images/backgrounds/og-events.jpg'">
               <div class="event-content">
                 <span class="event-date">${formatDate(event.date)}</span>

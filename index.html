@@ -136,10 +136,10 @@
       return new Date(dateStr) < new Date();
     }
 
-    // Render featured event
+    // Render featured event (always use the latest/first event)
     function renderFeaturedEvent(conferences) {
       const container = document.getElementById('featured-event');
-      const featured = conferences.find(c => c.featured) || conferences[0];
+      const featured = conferences[0];
 
       if (!featured) {
         container.innerHTML = '<p>No events scheduled</p>';
@@ -170,7 +170,7 @@
         const past = isPast(event.date);
         return `
           <a href="event.html?date=${event.date}" class="event-card-link">
-            <div class="event-card ${past ? 'past' : ''} ${event.featured ? 'featured' : ''}">
+            <div class="event-card ${past ? 'past' : ''}">
               <img src="${event.image}" alt="${event.speaker}" class="event-image" onerror="this.src='images/backgrounds/og-events.jpg'">
               <div class="event-content">
                 <span class="event-date">${formatDate(event.date)}</span>
