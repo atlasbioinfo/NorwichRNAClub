@@ -1,0 +1,4 @@
+Sitemap: https://norwichrnaclub.com/sitemap.xml
+
+User-agent: *
+Disallow:
