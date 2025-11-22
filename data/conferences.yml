@@ -30,6 +30,15 @@
 # ===========================================
 
 conferences:
+  - title: "AI in RNA Biology"
+    speaker: "Prof.Taoyang Wu, Prof. Ke Li, Prof. Alexandre Paschoal, Dr. Haopeng Yu, Heng Yang, Dr.Connor Reynolds, Dr. Ellen Cameron, Tianmeng Hu"
+    affiliation: "University of East Anglia, University of Exeter, The Rosalind Franklin Institute, John Innes Centre, Earlham Institute"
+    date: "2025-10-02"
+    time: "14:00 - 17:30"
+    location: "JIC lecture theatre,The John Innes Centre"
+    image: "images/logo.png"
+    poster: "images/posters/2025-10-02.png"
+    abstract: "AI in RNA Biology"
 
   - title: "RNA G-Quadruplex Structures: Key Regulators in Biology and Promising Targets for Disease"
     speaker: "Prof. Chun Kit Kwok"
