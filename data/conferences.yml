@@ -31,6 +31,28 @@
 
 conferences:
 
+  - title: "RNA G-Quadruplex Structures: Key Regulators in Biology and Promising Targets for Disease"
+    speaker: "Prof. Chun Kit Kwok"
+    affiliation: "Department of Chemistry and State Key Laboratory of Marine Environmental Health, City University of Hong Kong - Hong Kong"
+    date: "2025-09-05"
+    time: "14:00 - 15:00"
+    location: "Biffen 117,The John Innes Centre"
+    image: "images/speakers/Chun_Kit_Kwok.png"
+    poster: "images/posters/2025-04-11.png"
+    abstract: "RNA G-Quadruplex Structures: Key Regulators in Biology and Promising Targets for Disease"
+
+
+  - title: "Ligand-binding tertiary structures in RNA, and where to find them"
+    speaker: "Prof. Kevin Weeks"
+    affiliation: "Department of Chemisty, University of North Carolina - Chapel Hill"
+    date: "2025-04-11"
+    time: "11:00 - 12:00"
+    location: "Merton Auditorium, The John Innes Centre"
+    image: "images/speakers/kevin_weeks.png"
+    poster: "images/posters/2025-04-11.png"
+    abstract: "Ligand-binding tertiary structures in RNA, and where to find them."
+
+
   - title: "RNA plasticity in neuronal health and disease"
     speaker: "Dr. Junjie Guo"
     affiliation: "Department of Neuroscience, Yale School of Medicine"
