@@ -6,18 +6,18 @@
 # 1. Add a new entry following the format below
 # 2. Save and commit
 #
+# NOTES:
+# - Group Leaders are displayed in the first row
+# - Other team members are displayed in the second row
+#
 # ===========================================
 
-team:
+# Group Leaders (First Row)
+group_leaders:
   - name: "Yiliang Ding"
     title: "Group Leader"
     affiliation: "John Innes Centre"
     image: "images/team/yiliang-ding.jpg"
-
-  - name: "Haopeng Yu"
-    title: "Postdoctoral Researcher"
-    affiliation: "John Innes Centre"
-    image: "images/team/haopeng-yu.jpeg"
 
   - name: "Dr. Alper Akay"
     title: "Group Leader"
@@ -28,6 +28,13 @@ team:
     title: "Group Leader"
     affiliation: "Earlham Institute"
     image: "images/team/dr-wilfried-haerty.jpeg"
+
+# Team Members (Second Row)
+team:
+  - name: "Haopeng Yu"
+    title: "Postdoctoral Researcher"
+    affiliation: "John Innes Centre"
+    image: "images/team/haopeng-yu.jpeg"
 
   - name: "Maria"
     title: "Researcher"
