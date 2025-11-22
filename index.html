@@ -94,6 +94,13 @@
     &#8593;
   </button>
 
+  <!-- Image Lightbox Modal -->
+  <div class="image-modal" id="imageModal" onclick="closeImageModal()">
+    <span class="modal-close" onclick="closeImageModal()">&times;</span>
+    <img class="modal-content" id="modalImage" alt="">
+    <div class="modal-caption" id="modalCaption"></div>
+  </div>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
@@ -157,10 +164,11 @@
           <h2>${past ? 'Latest Event' : 'Upcoming Event'}</h2>
           <h3>${featured.title}</h3>
           <p class="speaker">${featured.speaker}</p>
+          <p class="affiliation">${featured.affiliation}</p>
           <p class="meta">${formatDate(featured.date)} | ${featured.time} | ${featured.location}</p>
           <a href="event.html?date=${featured.date}" class="btn btn-outline">View Details</a>
         </div>
-        <img src="${featured.image}" alt="${featured.speaker}" class="featured-event-avatar" onerror="this.src='images/backgrounds/og-events.jpg'">
+        <img src="${featured.image}" alt="${featured.speaker}" class="featured-event-avatar zoomable-image" onclick="openImageModal(this.src, '${featured.speaker}')" onerror="this.src='images/backgrounds/og-events.jpg'">
       `;
     }
 
@@ -179,7 +187,7 @@
         return `
           <a href="event.html?date=${event.date}" class="event-card-link">
             <div class="event-card ${past ? 'past' : ''}">
-              <img src="${event.image}" alt="${event.speaker}" class="event-image" onerror="this.src='images/backgrounds/og-events.jpg'">
+              <img src="${event.image}" alt="${event.speaker}" class="event-image zoomable-image" onclick="event.preventDefault(); event.stopPropagation(); openImageModal(this.src, '${event.speaker.replace(/'/g, "\\'")}')" onerror="this.src='images/backgrounds/og-events.jpg'">
               <div class="event-content">
                 <span class="event-date">${formatDate(event.date)}</span>
                 <h3 class="event-title">${event.title}</h3>
@@ -264,6 +272,32 @@
         top: 0,
         behavior: 'smooth'
       });
+    });
+
+    // Image Modal Functions
+    function openImageModal(src, alt) {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImage');
+      const modalCaption = document.getElementById('modalCaption');
+
+      modal.classList.add('active');
+      modalImg.src = src;
+      modalImg.alt = alt || '';
+      modalCaption.textContent = alt || '';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeImageModal() {
+      const modal = document.getElementById('imageModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeImageModal();
+      }
     });
   </script>
 </body>
