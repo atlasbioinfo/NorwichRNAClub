@@ -5,10 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Events - Norwich RNA Club</title>
   <meta name="description" content="Discover RNA seminars and symposiums at Norwich RNA Club. Stay updated with the latest in RNA research through engaging events and discussions.">
+  <meta name="keywords" content="RNA seminars, RNA events, RNA symposium, Norwich RNA Club, RNA research talks, RNA biology lectures, scientific seminars">
   <meta property="og:title" content="Events - Norwich RNA Club">
   <meta property="og:description" content="RNA seminars and symposiums at Norwich Research Park">
   <meta property="og:image" content="images/backgrounds/og-events.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://atlasbioinfo.github.io/NorwichRNAClub/events.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Events - Norwich RNA Club">
+  <meta name="twitter:description" content="RNA seminars and symposiums at Norwich Research Park">
+  <link rel="canonical" href="https://atlasbioinfo.github.io/NorwichRNAClub/events.html">
   <link rel="icon" href="images/logo.png" type="image/png">
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Events - Norwich RNA Club",
+    "description": "RNA seminars and symposiums at Norwich Research Park",
+    "url": "https://atlasbioinfo.github.io/NorwichRNAClub/events.html",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Norwich RNA Club",
+      "url": "https://atlasbioinfo.github.io/NorwichRNAClub/"
+    }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -19,7 +41,7 @@
   <header class="header">
     <div class="container">
       <a href="index.html" class="logo">
-        <img src="images/logo.png" alt="Norwich RNA Club">
+        <img src="images/logo.png" alt="Norwich RNA Club Logo">
       </a>
       <button class="mobile-menu-btn" onclick="toggleMenu()">&#9776;</button>
       <nav class="nav" id="nav">
@@ -151,7 +173,7 @@
         return `
           <a href="event.html?date=${event.date}" class="event-card-link">
             <div class="event-card ${past ? 'past' : ''}">
-              <img src="${event.image}" alt="${event.speaker}" class="event-image" onerror="this.src='images/backgrounds/og-events.jpg'">
+              <img src="${event.image}" alt="Photo of ${event.speaker}, speaker at Norwich RNA Club" class="event-image" onerror="this.src='images/backgrounds/og-events.jpg'">
               <div class="event-content">
                 <span class="event-date">${formatDate(event.date)}</span>
                 <h3 class="event-title">${event.title}</h3>
