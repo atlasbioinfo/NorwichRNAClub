@@ -5,10 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Join Us - Norwich RNA Club</title>
   <meta name="description" content="Join the Norwich RNA Club community. Connect with RNA enthusiasts and researchers at Norwich Research Park.">
+  <meta name="keywords" content="join RNA Club, RNA community, RNA researchers, Norwich Research Park, RNA mailing list, scientific community">
   <meta property="og:title" content="Join Norwich RNA Club">
   <meta property="og:description" content="Connect with RNA enthusiasts and researchers at Norwich Research Park">
   <meta property="og:image" content="images/backgrounds/og-join.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://atlasbioinfo.github.io/NorwichRNAClub/join.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Join Norwich RNA Club">
+  <meta name="twitter:description" content="Connect with RNA enthusiasts and researchers at Norwich Research Park">
+  <link rel="canonical" href="https://atlasbioinfo.github.io/NorwichRNAClub/join.html">
   <link rel="icon" href="images/logo.png" type="image/png">
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Join Norwich RNA Club",
+    "description": "Connect with RNA enthusiasts and researchers at Norwich Research Park",
+    "url": "https://atlasbioinfo.github.io/NorwichRNAClub/join.html",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Norwich RNA Club",
+      "email": "haopeng.yu@jic.ac.uk",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Norwich Research Park",
+        "addressRegion": "Norfolk",
+        "addressCountry": "UK"
+      }
+    }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -19,7 +47,7 @@
   <header class="header">
     <div class="container">
       <a href="index.html" class="logo">
-        <img src="images/logo.png" alt="Norwich RNA Club">
+        <img src="images/logo.png" alt="Norwich RNA Club Logo">
       </a>
       <button class="mobile-menu-btn" onclick="toggleMenu()">&#9776;</button>
       <nav class="nav" id="nav">
@@ -66,7 +94,7 @@
 
         <div class="contact-card" id="contact-info">
           <div class="contact-logo">
-            <img src="images/logo.png" alt="Norwich RNA Club">
+            <img src="images/logo.png" alt="Norwich RNA Club Logo">
           </div>
           <div class="contact-details">
             <p class="contact-message">Join our community of RNA researchers! Drop us an email to get on our mailing list and stay updated with upcoming seminars and events.</p>
@@ -135,7 +163,7 @@
 
       const renderMemberCard = (member) => `
         <div class="team-card">
-          <img src="${member.image}" alt="${member.name}" onerror="this.src='images/backgrounds/og-home.jpg'">
+          <img src="${member.image}" alt="Photo of ${member.name}, ${member.title} at ${member.affiliation}" onerror="this.src='images/backgrounds/og-home.jpg'">
           <h3>${member.name}</h3>
           <p class="title">${member.title}</p>
           <p class="affiliation">${member.affiliation}</p>

@@ -5,10 +5,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Norwich RNA Club - RNA Enthusiasts and Researchers</title>
   <meta name="description" content="Welcome to Norwich RNA Club, a community for RNA enthusiasts and researchers. Join us to explore the latest in RNA research and connect with the global community.">
+  <meta name="keywords" content="RNA, RNA Club, Norwich, RNA research, RNA biology, John Innes Centre, Earlham Institute, UEA, Norwich Research Park, seminars, RNA structure, transcriptomics">
   <meta property="og:title" content="Norwich RNA Club">
   <meta property="og:description" content="A community for RNA enthusiasts and researchers at Norwich Research Park">
   <meta property="og:image" content="images/backgrounds/og-home.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://atlasbioinfo.github.io/NorwichRNAClub/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Norwich RNA Club">
+  <meta name="twitter:description" content="A community for RNA enthusiasts and researchers at Norwich Research Park">
+  <link rel="canonical" href="https://atlasbioinfo.github.io/NorwichRNAClub/">
   <link rel="icon" href="images/logo.png" type="image/png">
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Norwich RNA Club",
+    "description": "A community for RNA enthusiasts and researchers at Norwich Research Park",
+    "url": "https://atlasbioinfo.github.io/NorwichRNAClub/",
+    "logo": "https://atlasbioinfo.github.io/NorwichRNAClub/images/logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Norwich",
+      "addressRegion": "Norfolk",
+      "addressCountry": "UK"
+    },
+    "sameAs": [],
+    "member": [
+      {
+        "@type": "Person",
+        "name": "Yiliang Ding",
+        "jobTitle": "Group Leader"
+      },
+      {
+        "@type": "Person",
+        "name": "Dr. Alper Akay",
+        "jobTitle": "Group Leader"
+      },
+      {
+        "@type": "Person",
+        "name": "Dr. Wilfried Haerty",
+        "jobTitle": "Group Leader"
+      }
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -19,7 +61,7 @@
   <header class="header">
     <div class="container">
       <a href="index.html" class="logo">
-        <img src="images/logo.png" alt="Norwich RNA Club">
+        <img src="images/logo.png" alt="Norwich RNA Club Logo">
       </a>
       <button class="mobile-menu-btn" onclick="toggleMenu()">&#9776;</button>
       <nav class="nav" id="nav">
@@ -60,7 +102,7 @@
           <a href="join.html" class="btn btn-primary">Learn More</a>
         </div>
         <div class="about-image">
-          <img src="images/backgrounds/og-home.jpg" alt="RNA Research">
+          <img src="images/backgrounds/og-home.jpg" alt="RNA research laboratory at Norwich Research Park">
         </div>
       </div>
     </div>
@@ -168,7 +210,7 @@
           <p class="meta">${formatDate(featured.date)} | ${featured.time} | ${featured.location}</p>
           <a href="event.html?date=${featured.date}" class="btn btn-outline">View Details</a>
         </div>
-        <img src="${featured.image}" alt="${featured.speaker}" class="featured-event-avatar zoomable-image" onclick="openImageModal(this.src, '${featured.speaker}')" onerror="this.src='images/backgrounds/og-events.jpg'">
+        <img src="${featured.image}" alt="Photo of ${featured.speaker}, featured speaker at Norwich RNA Club" class="featured-event-avatar zoomable-image" onclick="openImageModal(this.src, '${featured.speaker}')" onerror="this.src='images/backgrounds/og-events.jpg'">
       `;
     }
 
@@ -187,7 +229,7 @@
         return `
           <a href="event.html?date=${event.date}" class="event-card-link">
             <div class="event-card ${past ? 'past' : ''}">
-              <img src="${event.image}" alt="${event.speaker}" class="event-image zoomable-image" onclick="event.preventDefault(); event.stopPropagation(); openImageModal(this.src, '${event.speaker.replace(/'/g, "\\'")}')" onerror="this.src='images/backgrounds/og-events.jpg'">
+              <img src="${event.image}" alt="Photo of ${event.speaker}, speaker at Norwich RNA Club event" class="event-image zoomable-image" onclick="event.preventDefault(); event.stopPropagation(); openImageModal(this.src, '${event.speaker.replace(/'/g, "\\'")}')" onerror="this.src='images/backgrounds/og-events.jpg'">
               <div class="event-content">
                 <span class="event-date">${formatDate(event.date)}</span>
                 <h3 class="event-title">${event.title}</h3>
@@ -206,7 +248,7 @@
 
       const renderMemberCard = (member) => `
         <div class="team-card">
-          <img src="${member.image}" alt="${member.name}" onerror="this.src='images/backgrounds/og-home.jpg'">
+          <img src="${member.image}" alt="Photo of ${member.name}, ${member.title} at ${member.affiliation}" onerror="this.src='images/backgrounds/og-home.jpg'">
           <h3>${member.name}</h3>
           <p class="title">${member.title}</p>
           <p class="affiliation">${member.affiliation}</p>
