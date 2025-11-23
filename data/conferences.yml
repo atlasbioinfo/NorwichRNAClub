@@ -49,7 +49,7 @@ conferences:
     location: "Biffen 117,The John Innes Centre"
     description: "Prof. Kwok is a pioneer in RNA G-quadruplex research, developer of rG4-seq for transcriptome-wide profiling, and recipient of the 2024 RNA Society Early-Career Award. His research focuses on RNA structures and their roles in gene regulation and disease."
     image: "images/speakers/Chun_Kit_Kwok.png"
-    poster: "images/posters/2025-04-11.png"
+    poster: "images/posters/2025-09-05.png"
     abstract: "RNA G-Quadruplex Structures: Key Regulators in Biology and Promising Targets for Disease"
 
 
@@ -84,7 +84,7 @@ conferences:
     location: "JIC Lecture Theatre, John Innes Centre"
     description: "Prof. Lucks is Co-Director of the Center for Synthetic Biology at Northwestern, pioneering RNA folding principles and cell-free synthetic biology for diagnostics. His lab develops biosensing technologies for detecting water contaminants and pathogens. Recipient of NIH New Innovator Award and ACS Synthetic Biology Young Investigator Award."
     image: "images/speakers/julius-lucks.jpg"
-    poster: ""
+    poster: "images/posters/2024-04-17.png"
     abstract: "RNAs are emerging as a powerful substrate for engineering cellular behavior. As with all biomolecules, RNA function is intimately related to its structure, and many natural RNAs adopt structures that selectively modulate gene expression. Central questions in biology and bioengineering then are: How do RNAs fold inside cells?; and How can we engineer these folds to control gene expression? In this talk, I will present our work at the interface of these two questions and share results that are beginning to uncover new understanding of natural RNAs, and design principles for engineering RNAs for an array of applications, most notably in global health."
 
   - title: "Exploring the Co-evolution of Transposable Elements and the Plant Biological Role of RNA Structure"
