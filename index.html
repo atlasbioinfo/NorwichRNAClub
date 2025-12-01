@@ -85,7 +85,7 @@
   <!-- Featured Event -->
   <section class="section">
     <div class="container">
-      <div class="featured-event" id="featured-event">
+      <div id="featured-event">
         <div class="loading">Loading featured event...</div>
       </div>
     </div>
@@ -187,31 +187,62 @@
 
     // Check if date is in the past
     function isPast(dateStr) {
-      return new Date(dateStr) < new Date();
+      const eventDate = new Date(dateStr);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      return eventDate < today;
     }
 
-    // Render featured event (always use the latest/first event)
+    // Check if date is today or in the future
+    function isTodayOrFuture(dateStr) {
+      const eventDate = new Date(dateStr);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      return eventDate >= today;
+    }
+
+    // Render a single featured event card
+    function renderSingleFeaturedEvent(event, title) {
+      return `
+        <div class="featured-event" style="margin-bottom: 30px;">
+          <div class="featured-event-content">
+            <h2>${title}</h2>
+            <h3>${event.title}</h3>
+            <p class="speaker">${event.speaker}</p>
+            <p class="affiliation">${event.affiliation}</p>
+            <p class="meta">${formatDate(event.date)} | ${event.time} | ${event.location}</p>
+            <a href="event.html?date=${event.date}" class="btn btn-outline">View Details</a>
+          </div>
+          <img src="${event.image}" alt="Photo of ${event.speaker}, featured speaker at Norwich RNA Club" class="featured-event-avatar zoomable-image" onclick="openImageModal(this.src, '${event.speaker}')" onerror="this.src='images/backgrounds/og-events.jpg'">
+        </div>
+      `;
+    }
+
+    // Render featured event (show all upcoming or today's events)
     function renderFeaturedEvent(conferences) {
       const container = document.getElementById('featured-event');
-      const featured = conferences[0];
-
-      if (!featured) {
-        container.innerHTML = '<p>No events scheduled</p>';
-        return;
+      
+      // Filter events that are today or in the future
+      const upcomingEvents = conferences.filter(conf => isTodayOrFuture(conf.date));
+      
+      if (upcomingEvents.length === 0) {
+        // If no upcoming events, show the latest past event
+        const featured = conferences[0];
+        if (!featured) {
+          container.innerHTML = '<p>No events scheduled</p>';
+          return;
+        }
+        
+        container.innerHTML = renderSingleFeaturedEvent(featured, 'Latest Event');
+      } else if (upcomingEvents.length === 1) {
+        // If only one upcoming event
+        container.innerHTML = renderSingleFeaturedEvent(upcomingEvents[0], 'Upcoming Event');
+      } else {
+        // If multiple upcoming events, show them all with the same blue background style
+        container.innerHTML = upcomingEvents.map(event => 
+          renderSingleFeaturedEvent(event, 'Upcoming Events')
+        ).join('');
       }
-
-      const past = isPast(featured.date);
-      container.innerHTML = `
-        <div class="featured-event-content">
-          <h2>${past ? 'Latest Event' : 'Upcoming Event'}</h2>
-          <h3>${featured.title}</h3>
-          <p class="speaker">${featured.speaker}</p>
-          <p class="affiliation">${featured.affiliation}</p>
-          <p class="meta">${formatDate(featured.date)} | ${featured.time} | ${featured.location}</p>
-          <a href="event.html?date=${featured.date}" class="btn btn-outline">View Details</a>
-        </div>
-        <img src="${featured.image}" alt="Photo of ${featured.speaker}, featured speaker at Norwich RNA Club" class="featured-event-avatar zoomable-image" onclick="openImageModal(this.src, '${featured.speaker}')" onerror="this.src='images/backgrounds/og-events.jpg'">
-      `;
     }
 
     // Render events preview

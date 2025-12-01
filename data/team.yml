@@ -14,34 +14,36 @@
 
 # Group Leaders (First Row)
 group_leaders:
-  - name: "Yiliang Ding"
+  - name: "Prof. Yiliang Ding"
     title: "Group Leader"
     affiliation: "John Innes Centre"
     image: "images/team/yiliang-ding.jpg"
 
-  - name: "Dr. Alper Akay"
+  - name: "Prof. Alper Akay"
     title: "Group Leader"
     affiliation: "Earlham Institute"
     image: "images/team/dr-alper-akay.webp"
 
-  - name: "Dr. Wilfried Haerty"
+  - name: "Prof. Wilfried Haerty"
     title: "Group Leader"
     affiliation: "Earlham Institute"
     image: "images/team/dr-wilfried-haerty.jpeg"
 
 # Team Members (Second Row)
 team:
-  - name: "Haopeng Yu"
+  - name: "Dr. Haopeng Yu"
     title: "Postdoctoral Researcher"
     affiliation: "John Innes Centre"
-    image: "images/team/haopeng-yu.jpeg"
+    image: "images/team/haopeng-yu2.png"
 
+  - name: "Dr. Susan Duncan"
+    title: "Researcher"
+    affiliation: "John Innes Centre"
+    image: "images/team/susan-duncan.jpeg"
+    
   - name: "Maria"
     title: "Researcher"
     affiliation: "Norwich Research Park"
     image: "images/team/maria.jpeg"
 
-  - name: "Susan Duncan"
-    title: "Researcher"
-    affiliation: "John Innes Centre"
-    image: "images/team/susan-duncan.jpeg"
+
