@@ -36,8 +36,8 @@ conferences:
     date: "2025-12-05"
     time: "9:30 - 10:30"
     location: "Biffen Annexe 117 Seminar Room,The John Innes Centre"
-    description: "Prof. Danny Incarnato is a leading expert in RNA structural biology. His pioneering research focuses on developing innovative chemical and computational tools to study the structure, dynamics, and function of RNA molecules in living cells. Prof. Incarnato's work has advanced our understanding of RNA structural ensembles and their role in gene regulation, with applications ranging from basic molecular biology to therapeutic targeting."
-    image: "images/danny-incarnato2.png"
+    description: 'Prof. Danny Incarnato is a leading expert in RNA structural biology. His pioneering research focuses on developing innovative chemical and computational tools to study the structure, dynamics, and function of RNA molecules in living cells. Prof. Incarnato''s work has advanced our understanding of RNA structural ensembles and their role in gene regulation, with applications ranging from basic molecular biology to therapeutic targeting.'
+    image: "images/speakers/danny-incarnato2.png"
     poster: "images/posters/2025-12-05.png"
     abstract: 'RNA populates an ensemble of multiple conformations, which can coexist and interconvert. The ability to switch between alternative structural states is paramount to RNA ability to regulate gene expression. In this talk I will discuss how improvements in chemical probing data analysis are making it possible to investigate RNA structural ensemble at scale, with particular focus on bacterial and human RNAs. Furthermore, I will discuss how small molecules can be used to "reshape" RNA conformational landscapes, further enabling modulation of gene expression.'
 
