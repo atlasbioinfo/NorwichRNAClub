@@ -30,6 +30,17 @@
 # ===========================================
 
 conferences:
+  - title: "Decoding Viral RNA Structural Heterogeneity for Precision siRNA Targeting & Metabolic regulation of nucleic acid processes"
+    speaker: "Dr. Yueying Zhang & Dr. Katarzyna Hencel"
+    affiliation: "John Innes Centre & University of East Anglia"
+    date: "2026-05-06"
+    time: "14:00 - 16:00"
+    location: "Elizabeth Fry Building 01.05, University of East Anglia, Norwich Research Park, Norwich, NR4 7TJ, UK"
+    description: "Joint Norwich RNA Club seminar featuring two talks: Dr. Yueying Zhang (Department of Cell and Developmental Biology, John Innes Centre) on decoding viral RNA structural heterogeneity for precision siRNA targeting, and Dr. Katarzyna Hencel (Biomedical Research Centre, University of East Anglia) on metabolic regulation of nucleic acid processes."
+    image: "images/logo.png"
+    poster: "images/posters/2026-05-06.png"
+    abstract: "Talk 1 — Decoding Viral RNA Structural Heterogeneity for Precision siRNA Targeting (Dr. Yueying Zhang, Department of Cell and Developmental Biology, John Innes Centre, Norwich Research Park).\n\nTalk 2 — Metabolic regulation of nucleic acid processes (Dr. Katarzyna Hencel, Biomedical Research Centre, University of East Anglia).\n\nAll welcome."
+
   - title: "Mapping, functional characterization and therapeutic targeting of RNA structural ensembles in living cells"
     speaker: "Prof. Danny Incarnato"
     affiliation: "Department of Molecular Genetics, Groningen Biomolecular Sciences and Biotechnology Institute (GBB), University of Groningen"
