@@ -70,7 +70,7 @@ conferences:
     time: "14:00 - 16:00"
     location: "Biffen Annexe 117 Seminar Room,The John Innes Centre"
     description: 'Prof. Ying Wang is an Associate Professor in the Department of Plant Pathology at the University of Florida. His research focuses on plant cell and molecular biology, with particular expertise in RNA biology and plant-pathogen interactions. His lab investigates the molecular mechanisms of viroid infection, including RNA replication, intercellular trafficking, and host defense responses, contributing to our fundamental understanding of RNA-mediated processes in plant systems.'
-    image: "images/speakers/Ying-wang.png"
+    image: "images/speakers/ying-wang.png"
     poster: "images/posters/2025-12-03.png"
     abstract: 'Viroids are single-stranded circular non-coding RNAs that mainly infect crop plants. As the simplest autonomous RNA replicon without protein-coding capacity, viroid RNAs exploit cellular factors for organelle targeting and engaging DNA-dependent RNA polymerase for replication. Infected plants sense the infection and deploy multilayer defense activities. In this seminar, we will discuss the molecular basis of viroid intercellular trafficking, replication, and interaction with host defense, providing insights into RNA biology in diverse cellular processes.'
 
@@ -92,7 +92,7 @@ conferences:
     time: "14:00 - 15:00"
     location: "Biffen 117,The John Innes Centre"
     description: "Prof. Kwok is a pioneer in RNA G-quadruplex research, developer of rG4-seq for transcriptome-wide profiling, and recipient of the 2024 RNA Society Early-Career Award. His research focuses on RNA structures and their roles in gene regulation and disease."
-    image: "images/speakers/Chun_Kit_Kwok.png"
+    image: "images/speakers/chun-kit-kwok.png"
     poster: "images/posters/2025-09-05.png"
     abstract: "RNA G-Quadruplex Structures: Key Regulators in Biology and Promising Targets for Disease"
 
