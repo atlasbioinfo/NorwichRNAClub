@@ -30,6 +30,17 @@
 # ===========================================
 
 conferences:
+  - title: "RNA tethering on chromatin and its consequences"
+    speaker: "Prof. Stuart Wilson"
+    affiliation: "University of Sheffield"
+    date: "2026-07-15"
+    time: "14:00 - 15:00"
+    location: "New Science Building NEWSCI 0.06, University of East Anglia, Norwich Research Park, Norwich, NR4 7TJ, UK"
+    description: "Norwich RNA Club Seminar featuring Professor Stuart Wilson (University of Sheffield) on RNA tethering on chromatin and its consequences. All welcome."
+    image: "images/speakers/stuart-wilson.webp"
+    poster: "images/posters/2026-07-15.jpg"
+    abstract: "RNA tethering on chromatin and its consequences (Prof. Stuart Wilson, University of Sheffield).\n\nAll welcome."
+
   - title: "Decoding Viral RNA Structural Heterogeneity for Precision siRNA Targeting & Metabolic regulation of nucleic acid processes"
     speaker: "Dr. Yueying Zhang & Dr. Katarzyna Hencel"
     affiliation: "John Innes Centre & University of East Anglia"
